@@ -50,7 +50,7 @@ visibility:hidden;
 }
 }
 
-/* 3D GRID */
+/* BACKGROUND GRID */
 
 .bg-grid{
 position:fixed;
@@ -65,7 +65,7 @@ opacity:0.15;
 z-index:-5;
 }
 
-/* GLOWING ORBS */
+/* ORBS */
 
 .orb{
 position:fixed;
@@ -188,6 +188,8 @@ box-shadow:
 0 0 25px rgba(0,102,255,0.5),
 0 0 70px rgba(0,204,255,0.25);
 transition:0.4s;
+text-decoration:none;
+display:inline-block;
 }
 
 .btn:hover{
@@ -334,6 +336,70 @@ margin-bottom:15px;
 color:#4aa3ff;
 }
 
+/* STORE */
+
+.package{
+position:relative;
+overflow:hidden;
+min-height:650px;
+}
+
+.package::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:linear-gradient(
+45deg,
+transparent,
+rgba(255,255,255,0.04),
+transparent
+);
+transform:rotate(25deg);
+left:-150%;
+transition:1s;
+}
+
+.package:hover::before{
+left:100%;
+}
+
+.silver-package{
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.platinum-package{
+transform:scale(1.08);
+border:1px solid rgba(0,204,255,0.4);
+box-shadow:
+0 0 40px rgba(0,204,255,0.25);
+}
+
+.premium-package{
+border:1px solid rgba(255,215,0,0.4);
+box-shadow:
+0 0 40px rgba(255,215,0,0.2);
+}
+
+.popular-tag{
+position:absolute;
+top:20px;
+right:-35px;
+background:#00ccff;
+color:black;
+padding:8px 50px;
+font-size:12px;
+font-weight:bold;
+transform:rotate(45deg);
+}
+
+.package ul{
+list-style:none;
+text-align:left;
+line-height:2;
+margin-top:20px;
+}
+
 /* CONTACT */
 
 .contact{
@@ -444,6 +510,7 @@ KSB GLOBAL VISION
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
+<a href="#store">Packages</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -464,9 +531,9 @@ AI-powered surveillance and next-generation smart
 security infrastructure for enterprises worldwide.
 </p>
 
-<button class="btn">
+<a href="#store" class="btn">
 ACCESS SYSTEM
-</button>
+</a>
 
 </div>
 
@@ -518,8 +585,7 @@ ACCESS SYSTEM
 KSB Global Vision is a futuristic surveillance and smart
 security company focused on advanced CCTV monitoring,
 AI-powered security systems and worldwide remote access
-technology. Our mission is to redefine modern protection
-through innovative digital infrastructure.
+technology.
 </p>
 
 </section>
@@ -532,32 +598,106 @@ through innovative digital infrastructure.
 
 <div class="feature">
 <h3>🌍 Global Camera Access</h3>
-<p>Monitor surveillance systems from anywhere in the world.</p>
+<p>Monitor surveillance systems from anywhere.</p>
 </div>
 
 <div class="feature">
 <h3>🔐 Encrypted Security</h3>
-<p>Military-grade protection for cloud surveillance systems.</p>
+<p>Military-grade protection systems.</p>
 </div>
 
 <div class="feature">
 <h3>📡 AI Monitoring</h3>
-<p>Advanced smart detection and real-time threat analysis.</p>
+<p>Advanced threat analysis and detection.</p>
 </div>
 
-<div class="feature">
-<h3>☁️ Cloud Infrastructure</h3>
-<p>Secure remote storage and backup technology.</p>
 </div>
 
-<div class="feature">
-<h3>🏢 Enterprise Systems</h3>
-<p>Professional surveillance systems for large businesses.</p>
+</section>
+
+<section class="section" id="store">
+
+<h2>SECURITY PACKAGES</h2>
+
+<p>
+Choose the perfect surveillance and monitoring package
+for your business.
+</p>
+
+<div class="features">
+
+<div class="feature package silver-package">
+
+<h3>🥈 SILVER PACKAGE</h3>
+
+<h1 style="font-size:48px;margin:20px 0;color:#4aa3ff;">
+$200
+</h1>
+
+<ul>
+<li>✔ Normal Security Monitoring</li>
+<li>✔ CCTV Surveillance</li>
+<li>✔ Remote Viewing</li>
+<li>✔ Mobile Monitoring</li>
+<li>✔ Cloud Backup</li>
+</ul>
+
+<a href="#contact" class="btn" style="margin-top:25px;">
+GET SILVER
+</a>
+
 </div>
 
-<div class="feature">
-<h3>⚡ Real-Time Alerts</h3>
-<p>Instant notifications and smart activity tracking.</p>
+<div class="feature package platinum-package">
+
+<div class="popular-tag">
+POPULAR
+</div>
+
+<h3>💎 PLATINUM PACKAGE</h3>
+
+<h1 style="font-size:48px;margin:20px 0;color:#00ccff;">
+$400
+</h1>
+
+<ul>
+<li>✔ Advanced Monitoring</li>
+<li>✔ Advanced Security</li>
+<li>✔ Global Access</li>
+<li>✔ AI Motion Detection</li>
+<li>✔ Real-Time Alerts</li>
+<li>✔ Priority Support</li>
+</ul>
+
+<a href="#contact" class="btn" style="margin-top:25px;">
+GET PLATINUM
+</a>
+
+</div>
+
+<div class="feature package premium-package">
+
+<h3>👑 PREMIUM PACKAGE</h3>
+
+<h1 style="font-size:48px;margin:20px 0;color:#ffd700;">
+$650
+</h1>
+
+<ul>
+<li>✔ 24/7 AI Monitoring</li>
+<li>✔ Ultra Advanced Security</li>
+<li>✔ AI Threat Detection</li>
+<li>✔ Enterprise Surveillance</li>
+<li>✔ VIP Access</li>
+<li>✔ Ultra Secure Cloud</li>
+<li>✔ Smart Tracking System</li>
+<li>✔ Full Global Access</li>
+</ul>
+
+<a href="#contact" class="btn" style="margin-top:25px;background:linear-gradient(90deg,#ffd700,#ff9900);">
+GET PREMIUM
+</a>
+
 </div>
 
 </div>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSB Global Vision</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#020814;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* 3D GRID BACKGROUND */
+
+.bg-grid{
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:60px 60px;
+transform:perspective(900px) rotateX(75deg) scale(2);
+opacity:0.15;
+z-index:-5;
+}
+
+/* GLOWING LIGHTS */
+
+.orb{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+z-index:-4;
+animation:float 8s ease-in-out infinite;
+}
+
+.orb1{
+width:350px;
+height:350px;
+background:#0066ff;
+top:-100px;
+left:-100px;
+}
+
+.orb2{
+width:250px;
+height:250px;
+background:#00ccff;
+bottom:-50px;
+right:-50px;
+animation-delay:2s;
+}
+
+.orb3{
+width:180px;
+height:180px;
+background:#0044aa;
+top:50%;
+left:40%;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0px);}
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 60px;
+background:rgba(0,0,0,0.3);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+letter-spacing:3px;
+color:#4aa3ff;
+text-shadow:
+0 0 10px #1f6fff,
+0 0 30px #1f6fff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#4aa3ff;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:80px 60px;
+min-height:100vh;
+position:relative;
+}
+
+/* LEFT */
+
+.left{
+max-width:45%;
+z-index:2;
+}
+
+.left h1{
+font-size:78px;
+line-height:1.05;
+margin-bottom:25px;
+font-weight:900;
+}
+
+.left h1 span{
+color:#4aa3ff;
+text-shadow:
+0 0 15px #1f6fff,
+0 0 40px #1f6fff,
+0 0 70px #1f6fff;
+}
+
+.left p{
+font-size:18px;
+line-height:1.8;
+opacity:0.85;
+margin-bottom:35px;
+}
+
+.btn{
+padding:15px 35px;
+border:none;
+border-radius:14px;
+background:linear-gradient(90deg,#0066ff,#00ccff);
+color:white;
+font-size:16px;
+cursor:pointer;
+box-shadow:
+0 0 25px rgba(0,102,255,0.5),
+0 0 70px rgba(0,204,255,0.25);
+transition:0.4s;
+}
+
+.btn:hover{
+transform:translateY(-6px) scale(1.05);
+}
+
+/* RIGHT SIDE */
+
+.right{
+width:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* CCTV SCREEN WALL */
+
+.monitor-wall{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+transform:rotateY(-10deg) rotateX(5deg);
+}
+
+.screen{
+width:260px;
+height:160px;
+background:linear-gradient(135deg,#071425,#0b2445);
+border-radius:20px;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:
+0 0 30px rgba(0,102,255,0.25),
+inset 0 0 20px rgba(0,204,255,0.08);
+animation:float 6s ease-in-out infinite;
+}
+
+/* SCREEN EFFECT */
+
+.screen::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+transparent,
+rgba(0,255,255,0.08),
+transparent
+);
+animation:scan 3s linear infinite;
+}
+
+@keyframes scan{
+0%{transform:translateY(-100%);}
+100%{transform:translateY(100%);}
+}
+
+.screen h3{
+position:absolute;
+top:15px;
+left:15px;
+color:#4aa3ff;
+font-size:18px;
+}
+
+.screen p{
+position:absolute;
+bottom:15px;
+left:15px;
+font-size:14px;
+opacity:0.8;
+}
+
+/* FLOATING CARDS */
+
+.float-card{
+position:absolute;
+padding:18px 24px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 30px rgba(0,102,255,0.2);
+animation:float 5s ease-in-out infinite;
+}
+
+.card1{
+top:40px;
+left:-20px;
+}
+
+.card2{
+bottom:20px;
+right:-20px;
+animation-delay:2s;
+}
+
+/* FEATURES */
+
+.features{
+padding:100px 60px;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.feature{
+width:280px;
+padding:35px;
+background:rgba(255,255,255,0.05);
+border-radius:25px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
+}
+
+.feature:hover{
+transform:translateY(-12px) scale(1.04);
+box-shadow:
+0 0 35px rgba(0,102,255,0.35);
+}
+
+.feature h2{
+margin-bottom:15px;
+color:#4aa3ff;
+}
+
+/* CONTACT */
+
+.contact{
+padding:90px 20px;
+text-align:center;
+background:rgba(0,0,0,0.25);
+backdrop-filter:blur(10px);
+}
+
+.contact h2{
+font-size:42px;
+margin-bottom:20px;
+color:#4aa3ff;
+}
+
+.contact p{
+font-size:22px;
+margin:10px 0;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+opacity:0.7;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding-top:120px;
+}
+
+.left{
+max-width:100%;
+margin-bottom:60px;
+}
+
+.right{
+width:100%;
+}
+
+.left h1{
+font-size:52px;
+}
+
+.monitor-wall{
+transform:none;
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<header>
+
+<div class="logo">
+KSB GLOBAL VISION
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Security</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="left">
+
+<h1>
+GLOBAL<br>
+<span>SECURITY</span>
+</h1>
+
+<p>
+KSB Global Vision delivers futuristic CCTV monitoring,
+AI-powered surveillance and global smart security
+infrastructure for enterprises worldwide.
+</p>
+
+<button class="btn">
+COMING SOON
+</button>
+
+</div>
+
+<div class="right">
+
+<div class="monitor-wall">
+
+<div class="screen">
+<h3>LIVE CCTV</h3>
+<p>Real-Time Monitoring</p>
+</div>
+
+<div class="screen">
+<h3>AI SECURITY</h3>
+<p>Smart Threat Detection</p>
+</div>
+
+<div class="screen">
+<h3>GLOBAL ACCESS</h3>
+<p>Worldwide Surveillance</p>
+</div>
+
+<div class="screen">
+<h3>CLOUD STORAGE</h3>
+<p>Encrypted Infrastructure</p>
+</div>
+
+</div>
+
+<div class="float-card card1">
+<h3>24/7 LIVE</h3>
+<p>AI Surveillance Active</p>
+</div>
+
+<div class="float-card card2">
+<h3>GLOBAL SYSTEM</h3>
+<p>Next-Generation Security</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="features">
+
+<div class="feature">
+<h2>🌍 Global Coverage</h2>
+<p>Access cameras worldwide from a single platform.</p>
+</div>
+
+<div class="feature">
+<h2>🔐 Secure Infrastructure</h2>
+<p>Military-grade encrypted surveillance systems.</p>
+</div>
+
+<div class="feature">
+<h2>📡 Smart Monitoring</h2>
+<p>AI-powered future-ready monitoring technology.</p>
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2>CONTACT US</h2>
+
+<p>📞 +92 336 9911072</p>
+<p>📞 +92 301 2406843</p>
+
+</section>
+
+<footer>
+© 2026 KSB Global Vision — All Rights Reserved
+</footer>
+
+</body>
+</html>
